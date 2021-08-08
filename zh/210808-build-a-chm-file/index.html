@@ -10,12 +10,16 @@
     
     
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="翻越长城 - @bGZoCg">
-    <meta name="twitter:description" content="警告: 本文不适合任何人阅读, 请提前退出本页面结束阅读, 本文创作为个人臆想, 不具有任何实际意义, 针对当事人做出的任何违反当地法律和法规的行为, 本作者一概不负责.
- 在陆内的学习 CS 总是变得异常艰难, 一般用三个小时电脑, 前两个小时都在修网, 跑代理, 好不容易网络了能开个 google 了, 进度总是拉下同学一大截, 倒逼自己的课余时间不说, 时常陷入自我怀疑的骗局. 一天下来什么都没干不说, 还略有些自闭.
-&amp;hellip;&amp;hellip;
-Windows 下开代理十分方便, 因为有 GUI 的 CFW; 相对地, 在 *nix 就不一样了: 在关闭系统代理端口后打开网站 clash.razord.top/#/settings. 执行 Clash, 发现此页面会自动刷新. 表示 Clash 的外部映射端口以及机场的配置没有问题. 选择节点, 开启代理, 进行测试. 常见问题有:
- 系统代理 &amp;amp;&amp;amp; Clash 全部开启 配置文件格式  变量的大小写 变量的端口 映射端口   ./clash -d . &amp;amp; ./clash 的效果不一致. 套餐过期/场主跑路 &amp;hellip;&amp;hellip;  别嫌 Clash 在 *nix 上拉, CFW 在我的电脑上总是在 10G 的时候崩溃, 原因应该是受不住多过多应用和进程的并发代理, 总之如果有时候上不去 Google 的时候开关下代理软件就又可以了.">
+    <meta name="twitter:title" content="构建一个CHM文件 - @bGZoCg">
+    <meta name="twitter:description" content="建一个CHM？是的，说来话长&amp;hellip;
+ 2002 年，Microsoft 公布了一些与 .CHM 格式相关的安全风险，以及一些安全公告和补丁。此后，他们宣布不打算进一步开发 .CHM 格式，并将转向 Windows Vista 操作系统中称为 Microsoft 协助标记语言的新一代 Windows 帮助。
+&amp;ndash;维基百科
+ 我尝试在没有 GUI 软件帮助下使用 ubuntu 下的命令构建关于 python 的chm文件，听起来很酷。但是在微软和开源期间发生了一些事情，这使得解决方案变得陈旧而复杂，但幸运的是它并不困难。
+然后我在 StackoverFlow 中找到了方法，我发现他们似乎对这个支持跨平台并且对手机设备友好（文件管理和照片&amp;hellip;）的文件不感兴趣。我发现了寻找不存在命令很友好的 网站。 它提示我需要安装fpc, 其中有我们需要的chmcmd，但是内存需要占用675MB，，，我犹豫了，所以放弃了，啊哈哈&amp;hellip;..
+让我们回到 Windows 中去构建, 由strnghrs 制作的 HugeCHM, 大小居然控制在140kb 内！难以置信，他在博客中给了两个分享链接，比如 share1-4hie 和 share2。希望这能帮到你。但这也不是开源的。所以你只能从上面两个链接进入。没心情继续做下去&amp;hellip; 而且软件在构建内容和语言方面也显示了一些 BUG，例如没有目录，索引，书签并且无法搜索任何东西&amp;hellip;就像它的标题写的那样，它只适合需要的大文件的打包。
+我也看到了微软中的文档。但是好像什么都没说，就跟胡说八道一样……
+EasyCHM 是付费软件，家用许可协议 $259 商用许可协议$359, 好TM贵, 好在中文互联网上有破解版&amp;hellip;.
+也许用PDF代替chm会是更好的选择？而 chmlib 会在分离CHM文档上帮助你很多。">
     <meta name="twitter:site" content="https://bgzocg.me/">
     <meta name="twitter:creator" content="">
     <meta name="twitter:image" content="https://dandelionfs.oss-cn-beijing.aliyuncs.com/author-heart.webp">
@@ -23,24 +27,32 @@ Windows 下开代理十分方便, 因为有 GUI 的 CFW; 相对地, 在 *nix 就
     
     <meta property="og:locale" content="zh_CN">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="翻越长城 - @bGZoCg">
-    <meta property="og:description" content="警告: 本文不适合任何人阅读, 请提前退出本页面结束阅读, 本文创作为个人臆想, 不具有任何实际意义, 针对当事人做出的任何违反当地法律和法规的行为, 本作者一概不负责.
- 在陆内的学习 CS 总是变得异常艰难, 一般用三个小时电脑, 前两个小时都在修网, 跑代理, 好不容易网络了能开个 google 了, 进度总是拉下同学一大截, 倒逼自己的课余时间不说, 时常陷入自我怀疑的骗局. 一天下来什么都没干不说, 还略有些自闭.
-&amp;hellip;&amp;hellip;
-Windows 下开代理十分方便, 因为有 GUI 的 CFW; 相对地, 在 *nix 就不一样了: 在关闭系统代理端口后打开网站 clash.razord.top/#/settings. 执行 Clash, 发现此页面会自动刷新. 表示 Clash 的外部映射端口以及机场的配置没有问题. 选择节点, 开启代理, 进行测试. 常见问题有:
- 系统代理 &amp;amp;&amp;amp; Clash 全部开启 配置文件格式  变量的大小写 变量的端口 映射端口   ./clash -d . &amp;amp; ./clash 的效果不一致. 套餐过期/场主跑路 &amp;hellip;&amp;hellip;  别嫌 Clash 在 *nix 上拉, CFW 在我的电脑上总是在 10G 的时候崩溃, 原因应该是受不住多过多应用和进程的并发代理, 总之如果有时候上不去 Google 的时候开关下代理软件就又可以了.">
-    <meta property="og:url" content="https://bgzocg.me/zh/overhead-gfw/">
+    <meta property="og:title" content="构建一个CHM文件 - @bGZoCg">
+    <meta property="og:description" content="建一个CHM？是的，说来话长&amp;hellip;
+ 2002 年，Microsoft 公布了一些与 .CHM 格式相关的安全风险，以及一些安全公告和补丁。此后，他们宣布不打算进一步开发 .CHM 格式，并将转向 Windows Vista 操作系统中称为 Microsoft 协助标记语言的新一代 Windows 帮助。
+&amp;ndash;维基百科
+ 我尝试在没有 GUI 软件帮助下使用 ubuntu 下的命令构建关于 python 的chm文件，听起来很酷。但是在微软和开源期间发生了一些事情，这使得解决方案变得陈旧而复杂，但幸运的是它并不困难。
+然后我在 StackoverFlow 中找到了方法，我发现他们似乎对这个支持跨平台并且对手机设备友好（文件管理和照片&amp;hellip;）的文件不感兴趣。我发现了寻找不存在命令很友好的 网站。 它提示我需要安装fpc, 其中有我们需要的chmcmd，但是内存需要占用675MB，，，我犹豫了，所以放弃了，啊哈哈&amp;hellip;..
+让我们回到 Windows 中去构建, 由strnghrs 制作的 HugeCHM, 大小居然控制在140kb 内！难以置信，他在博客中给了两个分享链接，比如 share1-4hie 和 share2。希望这能帮到你。但这也不是开源的。所以你只能从上面两个链接进入。没心情继续做下去&amp;hellip; 而且软件在构建内容和语言方面也显示了一些 BUG，例如没有目录，索引，书签并且无法搜索任何东西&amp;hellip;就像它的标题写的那样，它只适合需要的大文件的打包。
+我也看到了微软中的文档。但是好像什么都没说，就跟胡说八道一样……
+EasyCHM 是付费软件，家用许可协议 $259 商用许可协议$359, 好TM贵, 好在中文互联网上有破解版&amp;hellip;.
+也许用PDF代替chm会是更好的选择？而 chmlib 会在分离CHM文档上帮助你很多。">
+    <meta property="og:url" content="https://bgzocg.me/zh/210808-build-a-chm-file/">
     <meta property="og:site_name" content="@bGZoCg">
     <meta property="og:image" content="https://dandelionfs.oss-cn-beijing.aliyuncs.com/author-heart.webp">
     
-    <title>翻越长城 - @bGZoCg</title>
+    <title>构建一个CHM文件 - @bGZoCg</title>
 
     <meta name="author" content="bGZoCg">
-    <meta name="description" content="警告: 本文不适合任何人阅读, 请提前退出本页面结束阅读, 本文创作为个人臆想, 不具有任何实际意义, 针对当事人做出的任何违反当地法律和法规的行为, 本作者一概不负责.
- 在陆内的学习 CS 总是变得异常艰难, 一般用三个小时电脑, 前两个小时都在修网, 跑代理, 好不容易网络了能开个 google 了, 进度总是拉下同学一大截, 倒逼自己的课余时间不说, 时常陷入自我怀疑的骗局. 一天下来什么都没干不说, 还略有些自闭.
-&amp;hellip;&amp;hellip;
-Windows 下开代理十分方便, 因为有 GUI 的 CFW; 相对地, 在 *nix 就不一样了: 在关闭系统代理端口后打开网站 clash.razord.top/#/settings. 执行 Clash, 发现此页面会自动刷新. 表示 Clash 的外部映射端口以及机场的配置没有问题. 选择节点, 开启代理, 进行测试. 常见问题有:
- 系统代理 &amp;amp;&amp;amp; Clash 全部开启 配置文件格式  变量的大小写 变量的端口 映射端口   ./clash -d . &amp;amp; ./clash 的效果不一致. 套餐过期/场主跑路 &amp;hellip;&amp;hellip;  别嫌 Clash 在 *nix 上拉, CFW 在我的电脑上总是在 10G 的时候崩溃, 原因应该是受不住多过多应用和进程的并发代理, 总之如果有时候上不去 Google 的时候开关下代理软件就又可以了.">
+    <meta name="description" content="建一个CHM？是的，说来话长&amp;hellip;
+ 2002 年，Microsoft 公布了一些与 .CHM 格式相关的安全风险，以及一些安全公告和补丁。此后，他们宣布不打算进一步开发 .CHM 格式，并将转向 Windows Vista 操作系统中称为 Microsoft 协助标记语言的新一代 Windows 帮助。
+&amp;ndash;维基百科
+ 我尝试在没有 GUI 软件帮助下使用 ubuntu 下的命令构建关于 python 的chm文件，听起来很酷。但是在微软和开源期间发生了一些事情，这使得解决方案变得陈旧而复杂，但幸运的是它并不困难。
+然后我在 StackoverFlow 中找到了方法，我发现他们似乎对这个支持跨平台并且对手机设备友好（文件管理和照片&amp;hellip;）的文件不感兴趣。我发现了寻找不存在命令很友好的 网站。 它提示我需要安装fpc, 其中有我们需要的chmcmd，但是内存需要占用675MB，，，我犹豫了，所以放弃了，啊哈哈&amp;hellip;..
+让我们回到 Windows 中去构建, 由strnghrs 制作的 HugeCHM, 大小居然控制在140kb 内！难以置信，他在博客中给了两个分享链接，比如 share1-4hie 和 share2。希望这能帮到你。但这也不是开源的。所以你只能从上面两个链接进入。没心情继续做下去&amp;hellip; 而且软件在构建内容和语言方面也显示了一些 BUG，例如没有目录，索引，书签并且无法搜索任何东西&amp;hellip;就像它的标题写的那样，它只适合需要的大文件的打包。
+我也看到了微软中的文档。但是好像什么都没说，就跟胡说八道一样……
+EasyCHM 是付费软件，家用许可协议 $259 商用许可协议$359, 好TM贵, 好在中文互联网上有破解版&amp;hellip;.
+也许用PDF代替chm会是更好的选择？而 chmlib 会在分离CHM文档上帮助你很多。">
 
     
     
@@ -48,7 +60,7 @@ Windows 下开代理十分方便, 因为有 GUI 的 CFW; 相对地, 在 *nix 就
     
     
     
-    <link rel="alternate" hreflang="en" href="https://bgzocg.me/overhead-gfw/" title="@bGZoCg">
+    <link rel="alternate" hreflang="en" href="https://bgzocg.me/210808-build-a-chm-file/" title="@bGZoCg">
     
     
 
@@ -69,15 +81,15 @@ Windows 下开代理十分方便, 因为有 GUI 的 CFW; 相对地, 在 *nix 就
 
     
     
-    <h1 class="text-4xl font-bold">翻越长城</h1>
-    <time datetime="2020-02-26 23:51:37 CST">26 Feb 2020</time>
+    <h1 class="text-4xl font-bold">构建一个CHM文件</h1>
+    <time datetime="2021-08-08 22:43:00 CST">08 Aug 2021</time>
     
     
     
     <ol class="mt-4">
         
         <li class="inline-block">
-            <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="https://bgzocg.me/tags/vps">VPS</a>
+            <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="https://bgzocg.me/tags/tools">Tools</a>
         </li>
         
     </ol>
@@ -91,7 +103,7 @@ Windows 下开代理十分方便, 因为有 GUI 的 CFW; 相对地, 在 *nix 就
             <nav>
                 
                 
-                <a href="https://bgzocg.me/overhead-gfw/">🇺🇸 English</a>
+                <a href="https://bgzocg.me/210808-build-a-chm-file/">🇺🇸 English</a>
                 
             </nav>
             
@@ -99,171 +111,19 @@ Windows 下开代理十分方便, 因为有 GUI 的 CFW; 相对地, 在 *nix 就
 
         
         
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#你必须知道的命令">你必须知道的命令</a></li>
-    <li><a href="#这些术语你需要了解">这些术语你需要了解</a></li>
-    <li><a href="#协议">协议</a>
-      <ul>
-        <li><a href="#ss">SS</a></li>
-        <li><a href="#ssr">SSR</a></li>
-        <li><a href="#v2ray">V2ray</a></li>
-      </ul>
-    </li>
-    <li><a href="#software">Software</a>
-      <ul>
-        <li><a href="#clash">CLASH</a></li>
-        <li><a href="#规则">规则</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
 <article class="mb-12">
-    <blockquote>
-<p><strong>警告</strong>: 本文不适合任何人阅读, 请提前退出本页面结束阅读, 本文创作为个人臆想, 不具有任何实际意义, 针对当事人做出的任何违反当地法律和法规的行为, 本作者一概不负责.</p>
+    <p>建一个CHM？是的，说来话长&hellip;</p>
+<blockquote>
+<p>2002 年，Microsoft 公布了一些与 .CHM 格式相关的安全风险，以及一些安全公告和补丁。此后，他们宣布不打算进一步开发 .CHM 格式，并将转向 Windows Vista 操作系统中称为 Microsoft 协助标记语言的新一代 Windows 帮助。</p>
+<p>&ndash;<a href="https://en.wikipedia.org/wiki/Microsoft_Compiled_HTML_Help">维基百科</a></p>
 </blockquote>
-<p>在陆内的学习 CS 总是变得异常艰难, 一般用三个小时电脑, 前两个小时都在修网, 跑代理, 好不容易网络了能开个 <code>google</code> 了, 进度总是拉下同学一大截, 倒逼自己的课余时间不说, 时常陷入自我怀疑的骗局. 一天下来什么都没干不说, 还略有些自闭.</p>
-<p>&hellip;&hellip;</p>
-<p>Windows 下开代理十分方便, 因为有 GUI 的 CFW; 相对地, 在 *nix 就不一样了: 在关闭系统代理端口后打开网站 <code>clash.razord.top/#/settings</code>. 执行 <code>Clash</code>, 发现此页面会自动刷新. 表示 Clash 的外部映射端口以及机场的配置没有问题. 选择节点, 开启代理, 进行测试. 常见问题有:</p>
-<ul>
-<li>系统代理 &amp;&amp; <code>Clash</code> 全部开启</li>
-<li>配置文件格式
-<ul>
-<li>变量的大小写</li>
-<li>变量的端口</li>
-<li>映射端口</li>
-</ul>
-</li>
-<li><code>./clash -d .</code> &amp; <code>./clash</code> 的效果不一致.</li>
-<li>套餐过期/场主跑路</li>
-<li>&hellip;&hellip;</li>
-</ul>
-<p>别嫌 Clash 在 *nix 上拉, CFW 在我的电脑上总是在 10G 的时候崩溃, 原因应该是受不住多过多应用和进程的并发代理, 总之如果有时候上不去 Google 的时候开关下代理软件就又可以了.</p>
-<h2 id="你必须知道的命令">你必须知道的命令</h2>
-<script src="https://gist.github.com/bGZoCg/82a76ecbebf81b556a1d20a91a6bd21a.js"></script>
-<h2 id="这些术语你需要了解">这些术语你需要了解</h2>
-<ul>
-<li><strong>IPLC</strong>: International Private Leased Circuit, 国际私有租赁线路. 延迟低, 速度快, 甚至低于日本CN2线路, 不用担心IP, 完全内网通讯, 三大运营商是付费网间结算.</li>
-<li><strong>IEPL</strong>: International Ethernet Private Line, 国际以太网专线, MSTP构建, SDH传输, GFP封装, 协议透明，物理层隔离，带宽保证，提供一层点对点数据专线服务.</li>
-<li>中国电信(China Telecom): 三大国际出口分别是，北京，上海，广州，全国的出口网络最后都会汇集到这三个出口点
-<ul>
-<li><strong>ChinaNet</strong>: 163骨干网/AS4134, 骨干网, 基建早, 带宽大, 便宜, 承载普通质量的互联网业务.</li>
-<li><strong>Chinatelecom Next Carrier Network</strong>: CNCN, CN2/AS4809. 后进骨干网, 欧洲, 北美和亚洲间的转接, 稳定高速, 时延敏感, 价格更贵.
-<ul>
-<li><strong>CN2 GT</strong>: Global Transit, 全球互联网资源转接, 提供给全球的通讯运营商, 电信163骨干网接入国际Tier1/2 运营商以及主流OTT, CN2直连国际网. 国际出口有单独线路，国内的链路使用163骨干网.</li>
-<li><strong>CN2 GIA</strong>: Global Internet Access, 为企业提供<strong>中国方向</strong>互联网专线接入. 接入CN2，出口全程CN2, 但出口带宽小, 有网络波动. GIA 的主要优势是回国有单独的线路，高优先级，高质量，但接入价格较贵。
-<ul>
-<li><strong>单程/单向 CN2</strong>
-<ul>
-<li><strong>去CN2, 回ChinaNet</strong>: 测试效果好, 实际体验无感.</li>
-<li><strong>去ChinaNet, 回CN2</strong>: 综合抗DDoS, 速度, 价格的最优解.</li>
-</ul>
-</li>
-<li><strong>双程/双向 CN2</strong><sup><a href="#j1">1</a></sup></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>GIS</strong>: Global Internet Services
-<ul>
-<li><strong>ChinaNet Paid-Peer</strong>: 为全世界运营商和OTT用户提供中国电信中文互联网资源的最短路由接入服务。</li>
-<li><strong>China Access</strong>: 为全球客户提供一站式的中文互联网资源接入服务。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>BGP</strong>: Border Gateway Protocol, 边界网关协议. 用于互联网AS间的互联, 控制路由的传播和选择最好的路由, BGP多线机房相较于双IP双线机房更优.<sup><a href="#j2">2</a></sup></li>
-<li><strong>中继</strong>: 中继入口在国内的，中继的入口到落地之间穿越防火墙的这一段一般会使用一些隧道协议(负载均衡/高可用/防止被墙)
-<ul>
-<li><strong>公网</strong>: 公网就是还走三大统一出国.</li>
-<li><strong>专线</strong>: 专线是国内国外两头内网传输.</li>
-</ul>
-</li>
-<li><strong>质量标准</strong>
-<ul>
-<li><code>IPLC/IEPL专线 &gt; CN2 GIA &gt; BGP中转 &gt; 普通隧道中继 &gt; 常规CN2 GT &gt; 直连线路 &gt; 普通线路</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="协议">协议</h2>
-<h3 id="ss">SS</h3>
-<p>原<a href="https://github.com/shadowsocks/shadowsocks-iOS">项目</a>地址, 因clowwindy被<a href="https://github.com/shadowsocks/shadowsocks-iOS/issues/124">喝茶</a>而关闭. 事情经过可以<a href="https://printempw.github.io/about-clowwindy-archive/">参考</a>.</p>
-<ul>
-<li>Script:
-<ul>
-<li><a href="https://github.com/teddysun/shadowsocks_install">shadowsocks_install</a>: Removed.
-<ul>
-<li><a href="https://teddysun.com/486.html">Docs</a></li>
-</ul>
-</li>
-<li><a href="https://github.com/heweiye/teddysunBackup">shadowsocks_install</a>: Backup.</li>
-</ul>
-</li>
-</ul>
-<h3 id="ssr">SSR</h3>
-<p>&hellip;&hellip;</p>
-<h3 id="v2ray">V2ray</h3>
-<ul>
-<li>Script:
-<ul>
-<li><a href="https://github.com/233boy/v2ray">v2ray</a>: Removed.
-<ul>
-<li><a href="https://github.com/vkuajing/v2ray">v2ray 教程</a>.</li>
-</ul>
-</li>
-<li><a href="https://github.com/PhenTse/233boy-v2ray">233boy-v2ray</a>: Backup.</li>
-</ul>
-</li>
-</ul>
-<h2 id="software">Software</h2>
-<h3 id="clash">CLASH</h3>
-<p>一款用<code>Go</code>开发的支持多平台的代理工具，支持 <code>ss</code>/<code>v2ray</code>/<code>snell</code>，支持规则分流(Surge)</p>
-<ul>
-<li><a href="https://github.com/Dreamacro/clash">Clash</a>.
-<ul>
-<li><a href="https://tmpclashpremiumbindary.cf/">Clash Mirror</a>.</li>
-</ul>
-</li>
-</ul>
-<p>Download:</p>
-<ul>
-<li><a href="https://github.com/yichengchen/clashX/">ClashX For Mac</a>.</li>
-<li><a href="https://github.com/Fndroid/clash_for_windows_pkg">Clash For Windows</a> By <a href="https://github.com/Fndroid">Fndroid</a>
-<ul>
-<li><a href="https://docs.cfw.lbyczf.com/">Docs</a>.</li>
-</ul>
-</li>
-<li>Clash For Android
-<ul>
-<li><a href="https://github.com/Kr328/ClashForMagisk">Clash For Magisk</a>.</li>
-<li><a href="https://github.com/kalasutra/Clash_Premium_For_Magisk">Clash Premium For Magisk</a>.</li>
-</ul>
-</li>
-<li><a href="https://github.com/alecthw/mmdb_china_ip_list">MMDB</a>.</li>
-</ul>
-<h3 id="规则">规则</h3>
-<p>仅供参考，安全自负. 有兴趣可以看 Fndroid <a href="https://github.com/Fndroid/jsbox_script/wiki/%E5%85%B3%E4%BA%8E%E7%AD%96%E7%95%A5%E7%BB%84%E7%9A%84%E7%90%86%E8%A7%A3">关于策略组的理解</a></p>
-<ul>
-<li>在线Subconverter订阅转换
-<ul>
-<li><a href="https://acl4ssr-sub.github.io/">https://acl4ssr-sub.github.io/</a></li>
-<li><a href="https://subcon.py6.pw/">https://subcon.py6.pw/</a></li>
-<li><a href="https://sub.weleven11.com/">https://sub.weleven11.com/</a></li>
-<li><a href="https://id9.cc/">https://id9.cc/</a></li>
-<li><a href="https://subcon.dlj.tf/">https://subcon.dlj.tf/</a></li>
-<li><a href="https://sub-web.wcc.best/">https://sub-web.wcc.best/</a></li>
-<li><a href="https://api.nameless13.com/">https://api.nameless13.com/</a></li>
-<li><a href="https://agwa.page/">https://agwa.page/</a></li>
-<li><a href="https://acl4ssr.netlify.app/">https://acl4ssr.netlify.app/</a></li>
-<li><a href="https://github.com/ConnersHua/Profiles/blob/master/Clash/Pro.yaml">神机规则</a></li>
-<li><a href="https://github.com/tindy2013/subconverter/blob/master/README-cn.md">tindy2013/subconverter</a></li>
-</ul>
-</li>
-</ul>
-<p><img src="https://z3.ax1x.com/2021/06/28/RNt0kn.png" alt=""></p>
-<div id="j1">[1]. https://www.oldking.net/751.html</div>
-<div id="j2">[2]. https://www.cnblogs.com/geowo/p/13706274.html</div>
-<div id="j3">[3]. https://code.visualstudio.com/docs/setup/network</div>
+<p>我尝试在没有 GUI 软件帮助下使用 ubuntu 下的命令构建关于 python 的<code>chm</code>文件，听起来很酷。但是在微软和开源期间发生了一些事情，这使得解决方案变得陈旧而复杂，但幸运的是它并不困难。</p>
+<p>然后我在 <a href="https://stackoverflow.com/questions/9174140/html-to-chm-file-under-linux">StackoverFlow</a> 中找到了方法，我发现他们似乎对这个支持跨平台并且对手机设备友好（文件管理和照片&hellip;）的文件不感兴趣。我发现了寻找不存在命令很友好的 <a href="https://command-not-found.com/">网站</a>。 它提示我需要安装<code>fpc</code>, 其中有我们需要的<code>chmcmd</code>，但是内存需要占用<code>675MB</code>，，，我犹豫了，所以放弃了，啊哈哈&hellip;..</p>
+<p>让我们回到 Windows 中去构建, 由<a href="https://www.cnblogs.com/stronghorse/">strnghrs</a> 制作的 HugeCHM, 大小居然控制在<code>140kb</code> 内！难以置信，他在博客中给了两个分享链接，比如 <a href="https://pan.baidu.com/s/1PnpZ3Bk-lTArrajva7EVzQ">share1-4hie</a> 和 <a href="https://www.mediafire.com/folder/f0z2hexqdnr9a/Software">share2</a>。希望这能帮到你。但这也不是开源的。所以你只能从上面两个链接进入。没心情继续做下去&hellip; 而且软件在构建内容和语言方面也显示了一些 BUG，例如没有目录，索引，书签并且无法搜索任何东西&hellip;就像它的标题写的那样，它只适合需要的大文件的打包。</p>
+<p>我也看到了<a href="https://docs.microsoft.com/zh-cn/previous-versions/windows/desktop/htmlhelp/creating-help">微软</a>中的文档。但是好像什么都没说，就跟胡说八道一样……</p>
+<p><a href="http://www.etextwizard.com/easychm.html">EasyCHM</a> 是付费软件，家用<a href="http://www.etextwizard.com/order_easychm.html">许可协议</a> <code>$259</code> 商用许可协议<code>$359</code>, 好TM贵, 好在中文互联网上有破解版&hellip;.</p>
+<p>也许用<code>PDF</code>代替<code>chm</code>会是更好的选择？而 <a href="https://github.com/jedwing/CHMLib"><code>chmlib</code></a> 会在分离<code>CHM</code>文档上帮助你很多。</p>
 
     <div id="disqus_thread"></div>
 <script type="application/javascript">
